@@ -66,13 +66,14 @@ model restaurant_centre {
 }
 
 model users {
-  user_id     Int     @id @default(autoincrement())
-  centre_id   Int?
-  role        String? @db.VarChar(10)
-  email       String? @db.VarChar(30)
-  password    String? @db.VarChar(60)
-  otp         String? @db.VarChar(6)
-  otp_expires BigInt?
-  createdAt DateTime @default(now()) @map("created_at") @db.Timestamp(0)
-  updatedAt DateTime @default(now()) @map("updated_at") @db.Timestamp(0)
+  user_id       Int      @id @default(autoincrement())
+  centre_id     Int?
+  role          String?  @db.VarChar(10)
+  email         String?  @db.VarChar(30)
+  password      String?  @db.VarChar(60)
+  otp           String?  @db.VarChar(6)
+  otp_expires   BigInt?
+  refresh_token String?  @db.VarChar(255) // Field for storing refresh token
+  createdAt     DateTime @default(now()) @map("created_at") @db.Timestamp(0)
+  updatedAt     DateTime @default(now()) @map("updated_at") @db.Timestamp(0)
 }

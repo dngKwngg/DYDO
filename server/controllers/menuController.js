@@ -173,10 +173,10 @@ const deleteMenuItem = async (req, res) => {
 			status: "Success",
 			message: "Done delete",
 		});
-	} catch {
+	} catch (err) {
 		return res.status(500).json({
 			status: "Failed",
-			error: err_delete,
+			error: err.message,
 		});
 	}
 };
@@ -232,7 +232,7 @@ const listFoodById = async (req, res) => {
 
 	// Tạo danh sách ID từ list_item
 	const list_id = list_item.map((item) => item.item_id).reverse();
-	console.log(list_id);
+	// console.log(list_id);
 	//đảo ngược mảng list_item
 	// const list_id_reverse = list_id.reverse();
 

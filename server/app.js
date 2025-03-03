@@ -10,9 +10,10 @@ import userRoute from "./routes/userRoute.js";
 
 const app = express();
 app.use(
-	cors({
-		origin: "*", // allow requests from any other server
-	})
+    cors({
+        origin: "http://localhost:3000", // Your frontend's URL
+        credentials: true, // allow cookies to be sent from the front-end
+    })
 );
 
 

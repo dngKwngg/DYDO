@@ -6,6 +6,8 @@ const Category = () => {
 	useEffect(() => {
 		const getFoodMenu = async () => {
 			try {
+				const token = localStorage.getItem("accessToken");
+				console.log(token);
 				const response = await fetch(
 					"http://localhost:8080/menu/listFood",
 					{

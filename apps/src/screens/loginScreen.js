@@ -25,7 +25,8 @@ const LoginScreen = () => {
             });
 
             const res = await response.json();
-            const user = res.data?.user?.[0];
+            const user = res.data?.user;
+			// console.log(user);
 
             // Guard clause for invalid status or missing user data
             if (!user || res.status !== "Success") {
@@ -36,6 +37,7 @@ const LoginScreen = () => {
             // Proceed with valid user data
             localStorage.setItem("user", JSON.stringify(user));
             localStorage.setItem("accessToken", res.data.accessToken);
+			localStorage.setItem("refreshToken", res.data.refreshToken);
 
             // Navigate based on role
             user.role === "admin" ? navigate("/admin") : navigate("/home");

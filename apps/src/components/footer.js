@@ -4,6 +4,7 @@ const Footer = () => {
 	const [centre, setCentre] = useState({});
 	useEffect(() => {
 		const user = localStorage.getItem("user");
+		console.log(user);
 		let staff = JSON.parse(user);
 		const centre_id = staff.centre_id;
 
